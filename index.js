@@ -4,8 +4,19 @@ $form.addEventListener('submit', e => e.preventDefault());
 
 class Timer {
     constructor($hrs, $min, $sec){
-        this.leftTime =
-        $sec + $min * 60 + $hrs * 3600;
+        this.leftTime = $sec + $min * 60 + $hrs * 3600;
+    }
+
+    timerStart(){
+        if (this.leftTime <= 0){
+            console.log('끝');
+            return
+        }
+        setTimeout(() => {
+            this.leftTime = this.leftTime - 1;
+            console.log(this.leftTime);
+            this.timerStart();
+        }, 1000)
     }
 }
 
@@ -25,9 +36,15 @@ $startBtn.addEventListener('click', e => {
     const $hrs = $form.querySelector("#hrs");
     const $min = $form.querySelector("#min");
     const $sec = $form.querySelector("#sec");
+
     if (validation($hrs, $min, $sec)){
-        const timeData = new Timer(parseInt($hrs.value), parseInt($min.value), parseInt($sec.value));
+        const timeData = new Timer(
+            parseInt($hrs.value), 
+            parseInt($min.value), 
+            parseInt($sec.value)
+        );
         console.log(timeData);
+        timeData.timerStart();
     } else {
         window.alert("값을 제대로 입력하세요.");
     }
