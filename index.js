@@ -3,10 +3,9 @@ const $startBtn = $form.querySelector('.start-btn');
 $form.addEventListener('submit', e => e.preventDefault());
 
 class Timer {
-    constructor(){
-        this.hrs = $hrs.value;
-        this.min = $min.value;
-        this.sec = $sec.value;
+    constructor($hrs, $min, $sec){
+        this.leftTime =
+        $sec + $min * 60 + $hrs * 3600;
     }
 }
 
@@ -26,5 +25,10 @@ $startBtn.addEventListener('click', e => {
     const $hrs = $form.querySelector("#hrs");
     const $min = $form.querySelector("#min");
     const $sec = $form.querySelector("#sec");
-    console.log(validation($hrs, $min, $sec));
+    if (validation($hrs, $min, $sec)){
+        const timeData = new Timer(parseInt($hrs.value), parseInt($min.value), parseInt($sec.value));
+        console.log(timeData);
+    } else {
+        window.alert("값을 제대로 입력하세요.");
+    }
 });
