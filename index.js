@@ -15,14 +15,30 @@ class Timer {
         this.bindEvents();
     }
 
+    timeCount(){
+        if (this.leftTime <= 0 || this.isPaused === true){
+            console.log(this.leftTime);
+            return;
+        }
+
+        setTimeout(()=>{
+            this.leftTime = this.leftTime - 1000;
+            console.log(this.leftTime);
+            this.timeCount();
+        }, 1000);
+    }
+
     timerStart(){
-        this.leftTime = 
-            (
-                parseInt(this.$sec.value) + 
-                parseInt(this.$min.value * 60) + 
-                parseInt(this.$hrs.value * 3600)
-            ) * 1000;
+        this.leftTime = (
+            parseInt(this.$sec.value) + 
+            parseInt(this.$min.value * 60) + 
+            parseInt(this.$hrs.value * 3600)
+        ) * 1000;
+
         console.log(this.leftTime);
+
+        this.timeCount.bind(this)();
+
         // if (this.leftTime <= 0 || this.isPaused == true){
         //     console.log('끝');
         //     return
