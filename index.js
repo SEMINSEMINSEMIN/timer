@@ -16,33 +16,35 @@ class Timer {
     }
 
     timeCount(){
-        // if (this.leftTime <= 0 || this.isPaused === true){
-        //     return;
-        // }
+        if (this.leftTime <= 0 || this.isPaused === true){
+            return;
+        }
 
         // 1로 하면 정확하지가 않음
         // 의호님 의견으로는 1000으로 하고 정확하지 않으면 내림 처리 하실거 같다고 함
         // https://sawol-today.tistory.com/396
         // https://deeplify.dev/front-end/js/timer-functions
-        // setTimeout(()=>{
-        //     // console.log(this.leftTime);
-        //     this.leftTime = this.leftTime - 1000;
-        //     if (this.leftTime % 1000 === 0){
-        //         console.log(this.leftTime / 1000);
-        //     }
-        //     this.timeCount();
-        // }, 1000);
-        if (this.leftTime > 0){
-            const z = setInterval(()=>{
-                this.leftTime -= 1000;
-                if (this.leftTime % 1000 === 0){
-                    console.log(this.leftTime);
-                }
-                if (this.leftTime <= 0){
-                    clearInterval(z);
-                }
-            }, 1000);
-        }
+        // https://stackoverflow.com/questions/8173580/setinterval-timing-slowly-drifts-away-from-staying-accurate
+        // https://stackoverflow.com/questions/13095972/is-it-possible-to-have-setinterval-set-too-fast
+        setTimeout(()=>{
+            // console.log(this.leftTime);
+            this.leftTime = this.leftTime - 1000;
+            if (this.leftTime % 1000 === 0){
+                console.log(this.leftTime / 1000);
+            }
+            this.timeCount();
+        }, 1000);
+        // if (this.leftTime > 0){
+        //     const z = setInterval(()=>{
+        //         this.leftTime -= 1000;
+        //         if (this.leftTime % 1000 === 0){
+        //             console.log(this.leftTime);
+        //         }
+        //         if (this.leftTime <= 0){
+        //             clearInterval(z);
+        //         }
+        //     }, 1000);
+        // }
     }
 
     timerStart(){
