@@ -16,13 +16,13 @@ class Timer {
     }
 
     timerStart(){
-        console.log(this.$hrs.value);
-        console.log(this.$min.value);
-        console.log(this.$sec.value);
         this.leftTime = 
-            parseInt(this.$sec.value) + 
-            parseInt(this.$min.value * 60) + 
-            parseInt(this.$hrs.value * 3600);
+            (
+                parseInt(this.$sec.value) + 
+                parseInt(this.$min.value * 60) + 
+                parseInt(this.$hrs.value * 3600)
+            ) * 1000;
+        console.log(this.leftTime);
         // if (this.leftTime <= 0 || this.isPaused == true){
         //     console.log('끝');
         //     return
