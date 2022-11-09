@@ -16,16 +16,33 @@ class Timer {
     }
 
     timeCount(){
-        if (this.leftTime <= 0 || this.isPaused === true){
-            console.log(this.leftTime);
-            return;
-        }
+        // if (this.leftTime <= 0 || this.isPaused === true){
+        //     return;
+        // }
 
-        setTimeout(()=>{
-            this.leftTime = this.leftTime - 1000;
-            console.log(this.leftTime);
-            this.timeCount();
-        }, 1000);
+        // 1로 하면 정확하지가 않음
+        // 의호님 의견으로는 1000으로 하고 정확하지 않으면 내림 처리 하실거 같다고 함
+        // https://sawol-today.tistory.com/396
+        // https://deeplify.dev/front-end/js/timer-functions
+        // setTimeout(()=>{
+        //     // console.log(this.leftTime);
+        //     this.leftTime = this.leftTime - 1000;
+        //     if (this.leftTime % 1000 === 0){
+        //         console.log(this.leftTime / 1000);
+        //     }
+        //     this.timeCount();
+        // }, 1000);
+        if (this.leftTime > 0){
+            const z = setInterval(()=>{
+                this.leftTime -= 1000;
+                if (this.leftTime % 1000 === 0){
+                    console.log(this.leftTime);
+                }
+                if (this.leftTime <= 0){
+                    clearInterval(z);
+                }
+            }, 1000);
+        }
     }
 
     timerStart(){
@@ -35,7 +52,7 @@ class Timer {
             parseInt(this.$hrs.value * 3600)
         ) * 1000;
 
-        console.log(this.leftTime);
+        // console.log(this.leftTime);
 
         this.timeCount.bind(this)();
 
