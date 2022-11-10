@@ -6,10 +6,6 @@ h1, h2, p {
     margin: 0;
 }
 
-.hide {
-    display: none;
-}
-
 html {
     font-size: 10px;
 }
@@ -70,10 +66,32 @@ height: 48px;
    margin-right: 22px;
 }
 
+.timer-settings .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 12px;
+}
+
+.btn-wrapper button {
+    display: flex;
+    width: 112px;
+    height: 48px;
+    background: #324577;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+}
+
 footer {
     font-size: 1.4rem;
     line-height: 16.8px;
     text-align: center;
     color: #8596BF;
     margin-top: 60px;
+}
+
+.btn-wrapper .hide {
+    display: none;
 }
