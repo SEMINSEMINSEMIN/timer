@@ -33,9 +33,17 @@ height: 48px;
 .timer {
     width: 400px;
     margin: 0 auto;
+    padding: 48px 0 40px;
     background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%);
     box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
     border-radius: 16px;
+}
+
+.timer h2 {
+    font-size: 2.4rem;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 footer {
