@@ -70,10 +70,18 @@ class Timer {
         // }, 1000)
     }
 
+    timerPause(){
+        clearTimeout(this.timerId);
+        console.log(this.leftTime);
+    }
+
     bindEvents(){
         this.$startBtn.addEventListener('click', e => {
             this.timerStart();
         });
+        this.$pauseBtn.addEventListener('click', e => {
+            this.timerPause();
+        })
     }
 }
 
