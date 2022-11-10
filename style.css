@@ -85,29 +85,53 @@ height: 48px;
     background: #324577;
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
     border-radius: 50px;
-    cursor: pointer;
+    cursor: not-allowed;
     border: none;
 }
 
-.btn-wrapper button.disabled {
-    cursor: not-allowed;
-}
-
-.start-btn.disabled:before {
+.start-btn:before {
     content: '';
     width: 16px;
     height: 16px;
     background-image: url(./img/icon-start-disabled.png);
 }
 
-.reset-btn.disabled:before {
+.reset-btn:before {
     content: '';
     width: 16px;
     height: 16px;
     background-image: url(./img/icon-reset-disabled.png);
 }
 
-.btn-wrapper .pause-btn {
+.btn-wrapper button.abled {
+    cursor: pointer;
+}
+
+.btn-wrapper .start-btn.abled {
+    background-color: #15C2B8;
+    color: white;
+}
+
+.start-btn.abled:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(./img/icon-start.png);
+}
+
+.btn-wrapper .reset-btn.abled {
+    background-color: #FB7099;
+    color: white;
+}
+
+.reset-btn.abled:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(./img/icon-reset.png);
+}
+
+.btn-wrapper .pause-btn.abled {
     background-color: #15C2B8;
     color: white;
 }
