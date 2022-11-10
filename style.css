@@ -75,6 +75,11 @@ height: 48px;
 
 .btn-wrapper button {
     display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    font-family: inherit;
+    color: #617199;
     width: 112px;
     height: 48px;
     background: #324577;
@@ -82,6 +87,36 @@ height: 48px;
     border-radius: 50px;
     cursor: pointer;
     border: none;
+}
+
+.btn-wrapper button.disabled {
+    cursor: not-allowed;
+}
+
+.start-btn.disabled:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(./img/icon-start-disabled.png);
+}
+
+.reset-btn.disabled:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(./img/icon-reset-disabled.png);
+}
+
+.btn-wrapper .pause-btn {
+    background-color: #15C2B8;
+    color: white;
+}
+
+.btn-wrapper .pause-btn:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(./img/icon-stop.png);
 }
 
 footer {
