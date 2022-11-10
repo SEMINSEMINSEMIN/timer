@@ -9,6 +9,7 @@ class Timer {
         this.$pauseBtn = $form.querySelector('.pause-btn');
         this.leftTime = 0;
         this.isPaused = false;
+        this.timerId = undefined;
     }
 
     setup(){
@@ -26,7 +27,7 @@ class Timer {
         // https://deeplify.dev/front-end/js/timer-functions
         // https://stackoverflow.com/questions/8173580/setinterval-timing-slowly-drifts-away-from-staying-accurate
         // https://stackoverflow.com/questions/13095972/is-it-possible-to-have-setinterval-set-too-fast
-        setTimeout(()=>{
+        this.timerId = setTimeout(()=>{
             // console.log(this.leftTime);
             this.leftTime = this.leftTime - 1000;
             if (this.leftTime % 1000 === 0){
