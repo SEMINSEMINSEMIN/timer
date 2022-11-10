@@ -39,3 +39,7 @@ footer {
     text-align: center;
     color: #8596BF;
 }
+
+.hide {
+    display: none;
+}
