@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(96.74% 276.79% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%) no-repeat;
+}
