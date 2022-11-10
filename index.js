@@ -8,6 +8,7 @@ class Timer {
         this.$sec = $form.querySelector('#sec');
         this.$startBtn = $form.querySelector('.start-btn');
         this.$pauseBtn = $form.querySelector('.pause-btn');
+        this.$resetBtn = $form.querySelector('.reset-btn');
         this.leftTime = 0;
         this.isPaused = false;
         this.timerId = undefined;
@@ -76,6 +77,15 @@ class Timer {
         console.log(this.leftTime);
     }
 
+    timerReset(){
+        this.timerPause();
+        this.leftTime = 0;
+        this.$hrs.value = 0;
+        this.$min.value = 0;
+        this.$sec.value = 0;
+        this.timerId = undefined;
+    }
+
     bindEvents(){
         $form.addEventListener('keyup', e => {
             this.timeDataSet();
@@ -84,8 +94,13 @@ class Timer {
         this.$startBtn.addEventListener('click', e => {
             this.timeCount();
         });
+
         this.$pauseBtn.addEventListener('click', e => {
             this.timerPause();
+        })
+
+        this.$resetBtn.addEventListener('click', e => {
+            this.timerReset();
         })
     }
 }
