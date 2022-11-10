@@ -6,6 +6,10 @@ h1, h2 {
     margin: 0;
 }
 
+html {
+    font-size: 10px;
+}
+
 body {
     height: 100vh;
     font-family: "Pretendard";
@@ -27,4 +31,11 @@ height: 48px;
     background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%);
     box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
     border-radius: 16px;
+}
+
+footer {
+    font-size: 1.4rem;
+    line-height: 16.8px;
+    text-align: center;
+    color: #8596BF;
 }
