@@ -1,7 +1,8 @@
+const $form = document.querySelector('.timer-settings');
+$form.addEventListener('submit', e => e.preventDefault());
+
 class Timer {
     constructor(){
-        const $form = document.querySelector('.timer-settings');
-        $form.addEventListener('submit', e => e.preventDefault());
         this.$hrs = $form.querySelector('#hrs');
         this.$min = $form.querySelector('#min');
         this.$sec = $form.querySelector('#sec');
@@ -48,7 +49,7 @@ class Timer {
         // }
     }
 
-    timerStart(){
+    timeDataSet(){
         this.leftTime = (
             parseInt(this.$sec.value) + 
             parseInt(this.$min.value * 60) + 
@@ -57,7 +58,7 @@ class Timer {
 
         // console.log(this.leftTime);
 
-        this.timeCount.bind(this)();
+        // this.timeCount.bind(this)();
 
         // if (this.leftTime <= 0 || this.isPaused == true){
         //     console.log('끝');
@@ -76,8 +77,12 @@ class Timer {
     }
 
     bindEvents(){
+        $form.addEventListener('keyup', e => {
+            this.timeDataSet();
+        });
+
         this.$startBtn.addEventListener('click', e => {
-            this.timerStart();
+            this.timeCount();
         });
         this.$pauseBtn.addEventListener('click', e => {
             this.timerPause();
