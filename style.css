@@ -66,6 +66,24 @@ height: 48px;
    margin-right: 22px;
 }
 
+.time-wrapper input {
+    background-color: transparent;
+    font-family: inherit;
+    border: none;
+    width: 53px;
+    height: 48px;
+    color: white;
+    font-size: 40px;
+    line-height: 48.01px;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .timer-settings .btn-wrapper {
     display: flex;
     justify-content: center;
