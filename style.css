@@ -22,8 +22,8 @@ h1 {
 }
 
 h1 img {
-width: 244px;
-height: 48px;
+    width: 244px;
+    height: 48px;
 }
 
 .timer {
@@ -56,6 +56,7 @@ height: 48px;
 }
 
 .timer-settings .time-wrapper {
+    position: relative;
     display: inline-block;
     width: 80px;
     height: 80px;
@@ -66,6 +67,17 @@ height: 48px;
    margin-right: 22px;
 }
 
+.time-wrapper label {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    line-height: 14.4px;
+    font-weight: 700;
+    color: #A5B6EE;
+}
+
 .time-wrapper input {
     background-color: transparent;
     font-family: inherit;
@@ -73,7 +85,7 @@ height: 48px;
     width: 53px;
     height: 48px;
     color: white;
-    font-size: 40px;
+    font-size: 4rem;
     line-height: 48.01px;
     text-align: center;
 }
