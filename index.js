@@ -56,6 +56,8 @@ class Timer {
             this.$hrs.value = '0' + this.$hrs.value;
         } else if (this.$hrs.value === ''){
             this.$hrs.value = '00';
+        } else if (this.$hrs.value.length >= 3){
+            this.$hrs.value = parseInt(this.$hrs.value, 10).toString();
         } else {
             this.$hrs.value = this.$hrs.value;
         }
@@ -64,6 +66,8 @@ class Timer {
             this.$min.value = '0' + this.$min.value;
         } else if (this.$min.value === ''){
             this.$min.value = '00';
+        } else if (this.$min.value.length >= 3){
+            this.$min.value = parseInt(this.$min.value, 10).toString();
         } else {
             this.$min.value = this.$min.value;
         }
@@ -72,6 +76,8 @@ class Timer {
             this.$sec.value = '0' + this.$sec.value;
         } else if (this.$sec.value === ''){
             this.$sec.value = '00';
+        } else if (this.$sec.value.length >= 3){
+            this.$sec.value = parseInt(this.$sec.value, 10).toString();
         } else {
             this.$sec.value = this.$sec.value;
         }
