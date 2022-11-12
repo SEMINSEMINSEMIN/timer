@@ -66,8 +66,9 @@ class Timer {
     }
 
     timerPause(){
+        this.$pauseBtn.classList.add("hide");
+        this.$startBtn.classList.remove("hide");
         clearTimeout(this.timerId);
-        console.log(this.leftTime);
     }
 
     timerReset(){
