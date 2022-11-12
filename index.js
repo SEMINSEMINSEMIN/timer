@@ -34,6 +34,7 @@ class Timer {
         this.$pauseBtn.classList.remove("hide");
 
         if (this.leftTime <= 0){
+            this.timerReset();
             return;
         }
         // 1로 하면 정확하지가 않음
