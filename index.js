@@ -77,7 +77,7 @@ class Timer {
         }
     }
 
-    timeValidation(){    
+    timeValidation(){   
         if (
             parseInt(this.$hrs.value, 10) === 0 &&
             parseInt(this.$min.value, 10) === 0 &&
@@ -89,6 +89,12 @@ class Timer {
             this.$startBtn.setAttribute("disabled", "");
             this.$resetBtn.setAttribute("disabled", "");
         } else if (
+            this.$hrs.value == "" ||
+            this.$min.value == "" ||
+            this.$sec.value == "" ||
+            parseInt(this.$hrs.value, 10) < 0 ||
+            parseInt(this.$min.value, 10) < 0 ||
+            parseInt(this.$sec.value, 10) < 0 ||
             parseInt(this.$min.value, 10) > parseInt(this.$min.max, 10) ||
             parseInt(this.$sec.value, 10) > parseInt(this.$sec.max, 10)
         ) {
