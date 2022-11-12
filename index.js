@@ -70,20 +70,26 @@ class Timer {
 
     timeValidation(){    
         if (
-            parseInt(this.$hrs.value, 10) <= parseInt(this.$hrs.max, 10) &&
-            parseInt(this.$hrs.value, 10) >= parseInt(this.$hrs.min, 10) &&
-            parseInt(this.$min.value, 10) <= parseInt(this.$min.max, 10) &&
-            parseInt(this.$min.value, 10) >= parseInt(this.$min.min, 10) &&
-            parseInt(this.$sec.value, 10) <= parseInt(this.$sec.max, 10) &&
-            parseInt(this.$sec.value, 10) >= parseInt(this.$sec.min, 10)
+            parseInt(this.$hrs.value, 10) === 0 &&
+            parseInt(this.$min.value, 10) === 0 &&
+            parseInt(this.$sec.value, 10) === 0
         ) {
-            this.timeDataSet();
-        } else {
             this.leftTime = 0;
             this.$startBtn.classList.remove("abled");
             this.$resetBtn.classList.remove("abled");
             this.$startBtn.setAttribute("disabled", "");
             this.$resetBtn.setAttribute("disabled", "");
+        } else if (
+            parseInt(this.$min.value, 10) > parseInt(this.$min.max, 10) ||
+            parseInt(this.$sec.value, 10) > parseInt(this.$sec.max, 10)
+        ) {
+            this.leftTime = 0;
+            this.$startBtn.classList.remove("abled");
+            this.$resetBtn.classList.remove("abled");
+            this.$startBtn.setAttribute("disabled", "");
+            this.$resetBtn.setAttribute("disabled", "");
+        } else {
+            this.timeDataSet();
         }
     }
 
@@ -121,7 +127,7 @@ class Timer {
 
     bindEvents(){
         $form.addEventListener('keyup', e => {
-            if (e.key != "Backspace"){
+            if (e.key !== "Backspace" && e.key !== "Tab"){
                 this.timeValidation();
             }
         });
