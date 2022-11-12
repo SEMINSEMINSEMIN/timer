@@ -33,7 +33,7 @@ class Timer {
         this.$startBtn.classList.add("hide");
         this.$pauseBtn.classList.remove("hide");
 
-        if (this.leftTime <= 0 || this.isPaused === true){
+        if (this.leftTime <= 0){
             return;
         }
         // 1로 하면 정확하지가 않음
@@ -70,16 +70,9 @@ class Timer {
 
     timeValidation(){   
         if (
-            parseInt(this.$hrs.value, 10) === 0 &&
+            (parseInt(this.$hrs.value, 10) === 0 &&
             parseInt(this.$min.value, 10) === 0 &&
-            parseInt(this.$sec.value, 10) === 0
-        ) {
-            this.leftTime = 0;
-            this.$startBtn.classList.remove("abled");
-            this.$resetBtn.classList.remove("abled");
-            this.$startBtn.setAttribute("disabled", "");
-            this.$resetBtn.setAttribute("disabled", "");
-        } else if (
+            parseInt(this.$sec.value, 10) === 0) ||
             this.$hrs.value == "" ||
             this.$min.value == "" ||
             this.$sec.value == "" ||
