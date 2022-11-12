@@ -32,9 +32,20 @@ class Timer {
         this.timerId = setTimeout(()=>{
             // console.log(this.leftTime);
             this.leftTime = this.leftTime - 1000;
-            if (this.leftTime % 1000 === 0){
-                console.log(this.leftTime / 1000);
-            }
+            let baseTime = this.leftTime / 1000;
+            this.$hrs.value = 
+                Math.floor(baseTime / 3600).toString().length === 1 ? '0' + Math.floor(baseTime / 3600).toString() :
+                Math.floor(baseTime / 3600).toString();
+            baseTime = baseTime % 3600;
+            this.$min.value = 
+                Math.floor(baseTime / 60).toString().length === 1 ?
+                '0' + Math.floor(baseTime / 60).toString() :
+                Math.floor(baseTime / 60).toString();
+            baseTime = baseTime % 60;
+            this.$sec.value = 
+                baseTime.toString().length === 1 ?
+                '0' + baseTime.toString() : 
+                baseTime.toString();
             this.timeCount();
         }, 1000);
         // if (this.leftTime > 0){
@@ -62,20 +73,6 @@ class Timer {
             parseInt(this.$min.value * 60) + 
             parseInt(this.$hrs.value * 3600)
         ) * 1000;
-
-        // console.log(this.leftTime);
-
-        // this.timeCount.bind(this)();
-
-        // if (this.leftTime <= 0 || this.isPaused == true){
-        //     console.log('끝');
-        //     return
-        // }
-        // setTimeout(() => {
-        //     this.leftTime = this.leftTime - 1;
-        //     console.log(this.leftTime);
-        //     this.timerStart();
-        // }, 1000)
     }
 
     timerPause(){
