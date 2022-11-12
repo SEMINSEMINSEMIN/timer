@@ -10,7 +10,6 @@ class Timer {
         this.$pauseBtn = $form.querySelector('.pause-btn');
         this.$resetBtn = $form.querySelector('.reset-btn');
         this.leftTime = 0;
-        this.isPaused = false;
         this.timerId = undefined;
     }
 
