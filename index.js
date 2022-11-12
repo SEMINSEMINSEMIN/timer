@@ -52,20 +52,29 @@ class Timer {
     }
 
     zeroValidation(){
-        this.$hrs.value = 
-        this.$hrs.value.toString().length === 1 ? 
-        '0' + this.$hrs.value.toString() :
-        this.$hrs.value.toString();
+        if (this.$hrs.value.toString().length === 1){
+            this.$hrs.value = '0' + this.$hrs.value.toString();
+        } else if (this.$hrs.value.toString() === ''){
+            this.$hrs.value = '00';
+        } else {
+            this.$hrs.value = this.$hrs.value.toString();
+        }
 
-        this.$min.value = 
-            this.$min.value.toString().length === 1 ? 
-            '0' + this.$min.value.toString() :
-            this.$min.value.toString();
+        if (this.$min.value.toString().length === 1){
+            this.$min.value = '0' + this.$min.value.toString();
+        } else if (this.$min.value.toString() === ''){
+            this.$min.value = '00';
+        } else {
+            this.$min.value = this.$min.value.toString();
+        }
 
-        this.$sec.value = 
-            this.$sec.value.toString().length === 1 ? 
-            '0' + this.$sec.value.toString() :
-            this.$sec.value.toString();
+        if (this.$sec.value.toString().length === 1){
+            this.$sec.value = '0' + this.$sec.value.toString();
+        } else if (this.$sec.value.toString() === ''){
+            this.$sec.value = '00';
+        } else {
+            this.$sec.value = this.$sec.value.toString();
+        }
     }
 
     timeValidation(){    
