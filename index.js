@@ -51,6 +51,23 @@ class Timer {
         }, 1000);
     }
 
+    zeroValidation(){
+        this.$hrs.value = 
+        this.$hrs.value.toString().length === 1 ? 
+        '0' + this.$hrs.value.toString() :
+        this.$hrs.value.toString();
+
+        this.$min.value = 
+            this.$min.value.toString().length === 1 ? 
+            '0' + this.$min.value.toString() :
+            this.$min.value.toString();
+
+        this.$sec.value = 
+            this.$sec.value.toString().length === 1 ? 
+            '0' + this.$sec.value.toString() :
+            this.$sec.value.toString();
+    }
+
     timeDataSet(){
         this.$startBtn.classList.add("abled");
         this.$resetBtn.classList.add("abled");
@@ -88,6 +105,10 @@ class Timer {
         $form.addEventListener('keyup', e => {
             this.timeDataSet();
         });
+
+        $form.addEventListener('focusout', e => {
+            this.zeroValidation();
+        })
 
         this.$startBtn.addEventListener('click', e => {
             this.timeCount();
