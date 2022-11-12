@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+/* .ir {
+	position: absolute;
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+} */
+
 h1, h2, p {
     margin: 0;
 }
