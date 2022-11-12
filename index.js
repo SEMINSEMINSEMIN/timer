@@ -74,10 +74,14 @@ class Timer {
     timerReset(){
         this.timerPause();
         this.leftTime = 0;
-        this.$hrs.value = 0;
-        this.$min.value = 0;
-        this.$sec.value = 0;
+        this.$hrs.value = "00";
+        this.$min.value = "00";
+        this.$sec.value = "00";
         this.timerId = undefined;
+        this.$startBtn.classList.remove("abled");
+        this.$startBtn.setAttribute("disabled", "");
+        this.$resetBtn.classList.remove("abled");
+        this.$resetBtn.setAttribute("disabled", "");
     }
 
     bindEvents(){
