@@ -19,10 +19,12 @@ class Timer {
     }
 
     timeCount(){
+        this.$startBtn.classList.add("hide");
+        this.$pauseBtn.classList.remove("hide");
+
         if (this.leftTime <= 0 || this.isPaused === true){
             return;
         }
-
         // 1로 하면 정확하지가 않음
         // 의호님 의견으로는 1000으로 하고 정확하지 않으면 내림 처리 하실거 같다고 함
         // https://sawol-today.tistory.com/396
@@ -30,7 +32,6 @@ class Timer {
         // https://stackoverflow.com/questions/8173580/setinterval-timing-slowly-drifts-away-from-staying-accurate
         // https://stackoverflow.com/questions/13095972/is-it-possible-to-have-setinterval-set-too-fast
         this.timerId = setTimeout(()=>{
-            // console.log(this.leftTime);
             this.leftTime = this.leftTime - 1000;
             let baseTime = this.leftTime / 1000;
             this.$hrs.value = 
@@ -48,17 +49,6 @@ class Timer {
                 baseTime.toString();
             this.timeCount();
         }, 1000);
-        // if (this.leftTime > 0){
-        //     const z = setInterval(()=>{
-        //         this.leftTime -= 1000;
-        //         if (this.leftTime % 1000 === 0){
-        //             console.log(this.leftTime);
-        //         }
-        //         if (this.leftTime <= 0){
-        //             clearInterval(z);
-        //         }
-        //     }, 1000);
-        // }
     }
 
     timeDataSet(){
